@@ -16,14 +16,14 @@ foods = [proteins, vegetables, fruits, dairies, starches]
 
 #I need to be able to pick a random item from each list
 
-# user_name = input('Name:')
+#user_name = input('Name:')
 user_name = 'Pebbles'
 
 
 #special ingredient user addition option
-# added_ingredient = input('Hi {}! Please add a special ingredient to the menu: '.format(user_name))
-# special_ingredients.append(added_ingredient)
-# foods.append(special_ingredients)
+#added_ingredient = input('Hi {}! Please add a special ingredient to the menu: '.format(user_name))
+#special_ingredients.append(added_ingredient)
+#foods.append(special_ingredients)
 
 #standard (no special ingredient option)
 menu_list = []
