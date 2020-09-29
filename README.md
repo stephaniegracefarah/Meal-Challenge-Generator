@@ -26,7 +26,7 @@ challenge_ingredients = ['marshmallows','coffee', 'chocolate', 'potato chips', '
 foods = [proteins, vegetables, fruits, dairies, starches]
 
 print('To start your meal challenge, please enter your name.')
-# user_name = input('Name:')
+#user_name = input('Name:')
 user_name = 'you'
 style = random.choice(flavor_profiles)
 welcome_message = 'Hi {}, welcome to your very own Meal Challenge! \n' \
