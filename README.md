@@ -39,14 +39,17 @@ print('The first length of the food categories is: ', len(foods))
 def add_options():
     print('Would you like to add a challenge ingredient to test your culinary creativity?')
     quest1 = input('Yes or No?')
-    if quest1 == (' yes') or quest1 == ('yes'):
+    if quest1.lower().lstrip() == ('yes'):
         foods.append(challenge_ingredients)
         print('The second length of the food categories now is: ', len(foods))
         print('you said yes to adding a challenge ingredient')
-    if quest1 == (' no') or quest1 == ('no') and len(foods) > 5:
+    elif quest1.lower().lstrip() == ('no') and len(foods) > 5:
         foods.pop(-1)
         print('The third length of the food categories now is: ', len(foods))
         print('you said no to adding the challenge ingredient')
+    else:
+        print('Please enter a valid response.')
+        add_options()
     print('Okay!')
 
 
@@ -66,11 +69,12 @@ def menu_suggestion():
 def repeat():
     print('Would you like to try a new combination?')
     quest2 = (input('Yes or No?'))
-    if quest2 == (' yes') or quest2 == ('yes'):
-        add_options()
+    if quest2.lower().lstrip() == ('yes'):
         menu_suggestion()
         print('you said yes to repeating')
-    print('Thank you for participating in the meal challenge!')
+        repeat()
+    if quest2 == (' no') or quest2 == ('no'):
+        print('Okay! Thank you for participating in the meal challenge!')
 
 menu_suggestion()
 repeat()
