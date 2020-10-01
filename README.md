@@ -56,13 +56,14 @@ def menu_list_function():
         menu_list.append(selected_food)
     return menu_list
 
+#printing what we are cooking with
 def menu_suggestion():
     menu_list = menu_list_function()
     menu_string = '{}, and {}'.format(', '.join(menu_list[0:-1]), menu_list[-1])
-    # if first word in printed flavor profile is a vowel, change a to an - how do I do that? menu_string.replace('and', 'an')
+    #if first word in printed flavor profile is a vowel, change a to an - how do I do that? menu_string.replace('and', 'an')
     print('\nOkay! Why not make a:\n\n*** {} inspired meal with: {}?***\n'.format(style, menu_string))
     #star frame around printed menu, bottom and top lines need to equal the len of the string - how do I do that?
-    #What did you decide to make? And store it in a list, and at the end of the game, print the list. 
+    #What did you decide to make? And store it in a list, and at the end of the game, print the list.
 
 def repeat():
     print('Would you like to try a new combination?')
