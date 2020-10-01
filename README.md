@@ -7,7 +7,7 @@ import random
 flavor_profiles = ['Mexican','American','mediterranean', 'French', 'asian', 'Thai', 'Indian', 'Eastern European',
                    'Caribbean', 'Cajun', 'German', 'South African', 'West African', 'East African', 'South American',
                    'Italian', 'American Barbeque', 'Tex-Mex']
-proteins = ['beef', 'chicken', 'pork', 'eggs', 'tofu', 'salmon' 'brisket', 'shrimp', 'lamb', 'tuna', 'turkey',
+proteins = ['beef', 'chicken', 'pork', 'eggs', 'tofu', 'salmon', 'brisket', 'shrimp', 'lamb', 'tuna', 'turkey',
             'tilapia', 'crawfish', 'crab', 'lobster', 'oysters', 'clams', 'bacon']
 vegetables = ['potatoes', 'green peppers', 'onions', 'asparagus', 'kale', 'green beans', 'corn', 'endive', 'tomatoes',
               'broccoli', 'cauliflower', 'beets', 'sweet potatoes', 'beans', 'pumpkin', 'spaghetti squash',
@@ -39,41 +39,41 @@ print('The first length of the food categories is: ', len(foods))
 def add_options():
     print('Would you like to add a challenge ingredient to test your culinary creativity?')
     quest1 = input('Yes or No?')
+    if len(foods) > 5:
+        foods.pop(-1)
     if quest1.lower().lstrip() == ('yes'):
         foods.append(challenge_ingredients)
-        print('The second length of the food categories now is: ', len(foods))
-        print('you said yes to adding a challenge ingredient')
-    elif quest1.lower().lstrip() == ('no') and len(foods) > 5:
-        foods.pop(-1)
-        print('The third length of the food categories now is: ', len(foods))
-        print('you said no to adding the challenge ingredient')
+    elif quest1.lower().lstrip() == ('no'):
+        print('Sounds good, no extra ingredient will be added.')
     else:
         print('Please enter a valid response.')
         add_options()
-    print('Okay!')
-
 
 add_options()
 
 #what we are cooking with
-menu_list = []
-for food in foods:
-    selected_food = random.choice(food)
-    menu_list.append(selected_food)
-
-menu_string = '{}, and {}'.format(', '.join(menu_list[0:-1]), menu_list[-1])
+def menu_list_function():
+    menu_list = []
+    for food in foods:
+        selected_food = random.choice(food)
+        menu_list.append(selected_food)
+    return menu_list
+# menu_list = menu_list[]
+# menu_string = '{}, and {}'.format(', '.join(menu_list[0:-1]), menu_list[-1])
 
 def menu_suggestion():
+    menu_list = menu_list_function()
+    menu_string = '{}, and {}'.format(', '.join(menu_list[0:-1]), menu_list[-1])
     print('Why not make a {} inspired meal with {}?'.format(style, menu_string))
 
 def repeat():
     print('Would you like to try a new combination?')
     quest2 = (input('Yes or No?'))
     if quest2.lower().lstrip() == ('yes'):
+        menu_list_function()
         menu_suggestion()
-        print('you said yes to repeating')
         repeat()
-    if quest2 == (' no') or quest2 == ('no'):
+    if quest2.lower().lstrip() == ('no'):
         print('Okay! Thank you for participating in the meal challenge!')
 
 menu_suggestion()
