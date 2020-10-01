@@ -26,14 +26,13 @@ challenge_ingredients = ['marshmallows','coffee', 'chocolate', 'potato chips', '
 foods = [proteins, vegetables, fruits, dairies, starches]
 
 print('To start your meal challenge, please enter your name.')
-#user_name = input('Name:')
-user_name = 'you'
+user_name = input('Name:')
+#user_name = 'you'
 style = random.choice(flavor_profiles)
 welcome_message = 'Hi {}, welcome to your very own Meal Challenge! \n' \
                   'You will be given a list of food to create a unique meal. \n' \
                   'Use standard pantry items in your food journey, and let your creative juices flow!'.format(user_name)
 print(welcome_message)
-print('The first length of the food categories is: ', len(foods))
 
 #challenge ingredient option
 def add_options():
@@ -58,8 +57,6 @@ def menu_list_function():
         selected_food = random.choice(food)
         menu_list.append(selected_food)
     return menu_list
-# menu_list = menu_list[]
-# menu_string = '{}, and {}'.format(', '.join(menu_list[0:-1]), menu_list[-1])
 
 def menu_suggestion():
     menu_list = menu_list_function()
@@ -75,6 +72,9 @@ def repeat():
         repeat()
     if quest2.lower().lstrip() == ('no'):
         print('Okay! Thank you for participating in the meal challenge!')
+    else:
+        print('Please enter a valid response.')
+        repeat()
 
 menu_suggestion()
 repeat()
